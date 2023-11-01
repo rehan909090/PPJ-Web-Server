@@ -4,10 +4,10 @@ const hbs = require('hbs')
 const geocode = require('./utils/geocode')
 const forecast = require('./utils/prediksiCuaca')
 const axios = require('axios')
-const port = process.env.PORT || 4000
 
 
 const app = express()
+const port = process.env.PORT || 4000
 
 // Mendefinisikan jalur/path untuk konfigurasi express
 const direktoriPublic = path.join(__dirname, '../public')

@@ -82,7 +82,7 @@ app.get('/tentang', (req, res) => {
 app.get('/berita', async (req, res) => {
     try {
         const urlApiMediaStack = 'http://api.mediastack.com/v1/news';
-        const apiKey = 'be42ff6447147e92b2cbca5e7952df12';
+        const apiKey = '686f1077e749ced34d97aed53df8a54d';
 
         const params = {
             access_key: apiKey,

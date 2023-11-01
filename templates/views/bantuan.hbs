@@ -1,17 +1,40 @@
 <!DOCTYPE html>
-
 <html>
 
 <head>
     <title>Halaman Bantuan</title>
-    <link rel="icon" href="/img/imgg.png">
+    <link rel="icon" href="/img/logo.png">
     <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
     <div class="main-content">
         {{>header}}
-        <p>{{teksBantuan}}</p>
+        <div class="faq">
+            <h2>Frequently Asked Questions (FAQ)</h2>
+
+            <h3>a. Halaman ini digunakan untuk apa?</h3>
+            <p><strong>Jawaban:</strong> Halaman ini digunakan untuk memberikan informasi dan panduan kepada pengguna
+                tentang penggunaan aplikasi kami. Ini adalah sumber informasi tentang aplikasi kami.</p>
+
+            <h3>b. Apa itu API?</h3>
+            <p><strong>Jawaban:</strong> API (Application Programming Interface) adalah set aturan dan protokol yang
+                memungkinkan perangkat lunak berkomunikasi satu sama lain. Dalam konteks aplikasi kami, API digunakan
+                untuk mengambil data dari sumber eksternal dan menampilkannya kepada pengguna.</p>
+
+            <h3>c. API apa yang digunakan dalam aplikasi ini?</h3>
+            <p><strong>Jawaban:</strong> Aplikasi kami menggunakan API data cuaca dari layanan pihak ketiga untuk
+                memberikan informasi cuaca yang akurat kepada pengguna.</p>
+
+            <h3>d. Salah satu pola arsitektur API adalah (pilih salah satu SOA, RESTful, GraphQL, dan gRPC)</h3>
+            <p><strong>Jawaban:</strong> Salah satu pola arsitektur API yang digunakan dalam aplikasi kami adalah
+                RESTful (Representational State Transfer). RESTful adalah pendekatan yang mudah dipahami dan digunakan
+                dalam komunikasi antara klien (pengguna aplikasi) dan server. Ini memungkinkan pertukaran data yang
+                efisien melalui permintaan HTTP yang sederhana.</p>
+
+            <h3>e. Gambar Pendukung</h3>
+            <img src="/img/gambar-pendukung.jpg" alt="Gambar Pendukung">
+        </div>
     </div>
     {{>footer}}
 </body>

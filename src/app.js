@@ -3,6 +3,8 @@ const path = require('path')
 const hbs = require('hbs')
 const geocode = require('./utils/geocode')
 const forecast = require('./utils/prediksiCuaca')
+const axios = require('axios');
+
 
 const app = express()
 
@@ -23,7 +25,7 @@ app.use(express.static(direktoriPublic))
 app.get('', (req, res) => {
 res.render('index', {
     judul: 'Aplikasi Cek Cuaca',
-    nama: 'Farhan Novaldi'
+    nama: 'Rayhan Ahadi Nifri'
 })
 })
 
@@ -31,7 +33,7 @@ res.render('index', {
 app.get('/bantuan', (req, res) => {
     res.render('bantuan', {
     judul: 'Halaman Bantuan',
-    nama: 'Farhan Novaldi',
+    nama: 'Rayhan Ahadi Nifri',
     teksBantuan: 'Ini adalah teks bantuan'
     })
 })
@@ -63,16 +65,52 @@ location } = {}) => {
 
 //ini halaman tentang
 app.get('/tentang', (req, res) => {
-res.render('tentang', {
-    judul: 'Tentang Saya',
-    nama: 'Farhan Novaldi'
+    res.render('tentang', {
+        judul: 'AUTHOR',
+        nama: 'Rayhan Ahadi Nifri',
+        instagram: '@rehanahdii',
+        spotify: 'Rusty Sword',
+        email: 'Rayhanpp18@gmail.com',
+        genre : 'Dubstep, Trap, Future Riddim',
+        profesi: ['Bass Music Producer'],
+        label: ['Blasphamy Rec, Dezz Promotion, Catalysmy Sound'],
+    })
 })
-})
+
+// ini halaman berita
+app.get('/berita', async (req, res) => {
+    try {
+        const urlApiMediaStack = 'http://api.mediastack.com/v1/news';
+        const apiKey = 'be42ff6447147e92b2cbca5e7952df12';
+
+        const params = {
+            access_key: apiKey,
+            countries: 'id', 
+        };
+
+        const response = await axios.get(urlApiMediaStack, { params });
+        const dataBerita = response.data;
+
+        res.render('berita', {
+            nama: 'Rayhan Ahadi Nifri',
+            judul: 'Laman Berita',
+            berita: dataBerita.data,
+        });
+    } catch (error) {
+        console.error(error);
+        res.render('error', {
+            judul: 'Terjadi Kesalahan',
+            pesanKesalahan: 'Terjadi kesalahan saat mengambil berita.',
+        });
+    }
+});
+
+
 
 app.get('/bantuan/*',(req,res)=>{
     res.render('404',{
         judul: '404',
-        nama: 'Farhan Novaldi',
+        nama: 'Rayhan Ahadi Nifri',
         pesanKesalahan:'Artikel yang dicari tidak ditemukan'
     })
 })
@@ -80,7 +118,7 @@ app.get('/bantuan/*',(req,res)=>{
 app.get('*',(req,res)=>{
     res.render('404',{
         judul:'404',
-        nama: 'Farhan Novaldi',
+        nama: 'Rayhan Ahadi Nifri',
         pesanKesalahan:'Halaman tidak ditemukan'
     })
 })

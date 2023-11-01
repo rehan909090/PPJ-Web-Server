@@ -4,7 +4,7 @@ const hbs = require('hbs')
 const geocode = require('./utils/geocode')
 const forecast = require('./utils/prediksiCuaca')
 const axios = require('axios')
-const port = process.env.PORT || 5000
+const port = process.env.PORT || 4000
 
 
 const app = express()
